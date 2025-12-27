@@ -1,0 +1,7 @@
+{%for team in vse%}
+    <h1>КАМАНДА {{team.name}}</h1>
+    <h2>РАБОТАЕТ НАД {{team.event.name}}</h2>
+    {%for ra in team.employees.all%}
+        <h1>{{ra.name}}</h1>
+    {%endfor%}
+{%endfor%}

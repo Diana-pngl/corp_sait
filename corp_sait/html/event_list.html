@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список мероприятий</title>
+</head>
+<body>
+    <h1>Список мероприятий</h1>
+
+    <!-- Форма поиска по дате -->
+    <form method="GET">
+        <label for="date">Поиск по дате:</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">Поиск</button>
+    </form>
+
+    <ul>
+        {% for event in vse %}
+            <li>
+                <strong>Название:</strong> {{ event.name }}<br>
+                <strong>Дата:</strong> {{ event.date }}<br>
+                <strong>Количество гостей:</strong> {{ event.guests }}<br>
+                <strong>Бюджет:</strong> {{ event.budget }} руб.<br>
+                <strong>Описание:</strong> {{ event.description }}
+                <strong>Команды:</strong>
+                {% for team in event.teams.all%}
+                {{team.name}}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
